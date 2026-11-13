@@ -2,6 +2,7 @@
 import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
+import koreanize_matplotlib
 from matplotlib.patches import Ellipse
 
 # -----------------------------------------
@@ -57,9 +58,7 @@ def password_check():
 if not password_check():
     st.stop()
 
-# 한글 폰트 설정
-plt.rcParams["font.family"] = "Malgun Gothic"
-plt.rcParams["axes.unicode_minus"] = False
+
 
 st.title("콘택트렌즈 광학 시뮬레이터 (대륜 10703 김민찬)")
 st.write(
