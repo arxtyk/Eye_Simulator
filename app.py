@@ -2,7 +2,7 @@
 import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
-import koreanize_matplotlib
+
 from matplotlib.patches import Ellipse
 
 # -----------------------------------------
@@ -58,8 +58,21 @@ def password_check():
 if not password_check():
     st.stop()
 
+
+
 # 한글 폰트 설정
-plt.rcParams["font.family"] = "NanumGothic"
+from matplotlib import font_manager
+
+font_path = font_manager.findfont(
+    "NanumGothic",
+    fallback_to_default=False
+)
+
+font_name = font_manager.FontProperties(
+    fname=font_path
+).get_name()
+
+plt.rcParams["font.family"] = font_name
 plt.rcParams["axes.unicode_minus"] = False
 
 st.title("콘택트렌즈 광학 시뮬레이터 (대륜 10703 김민찬)")
