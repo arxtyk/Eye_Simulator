@@ -62,17 +62,23 @@ if not password_check():
 
 # 한글 폰트 설정
 from matplotlib import font_manager
+import os
 
-font_path = font_manager.findfont(
-    "NanumGothic",
-    fallback_to_default=False
-)
+font_path = "/usr/share/fonts/truetype/nanum/NanumGothic.ttf"
 
-font_name = font_manager.FontProperties(
-    fname=font_path
-).get_name()
+if os.path.exists(font_path):
+    font_manager.fontManager.addfont(font_path)
 
-plt.rcParams["font.family"] = font_name
+    font_name = font_manager.FontProperties(
+        fname=font_path
+    ).get_name()
+
+    plt.rcParams["font.family"] = font_name
+else:
+    raise FileNotFoundError(
+        f"한글 폰트 파일을 찾을 수 없습니다: {font_path}"
+    )
+
 plt.rcParams["axes.unicode_minus"] = False
 
 st.title("콘택트렌즈 광학 시뮬레이터 (대륜 10703 김민찬)")
