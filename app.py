@@ -340,8 +340,8 @@ def draw_simulation(n, R1, R2, t, do):
     ax.text(1.5, 1.0, "콘택트렌즈", ha="center", fontsize=10)
 
     ax.set_title("콘택트렌즈와 안구의 단면도", fontsize=15)
-    ax.set_xlabel("가로 방향 (개념적 위치)")
-    ax.set_ylabel("세로 방향 (개념적 위치)")
+    ax.set_xlabel("가로 방향")
+    ax.set_ylabel("세로 방향")
 
     ax.set_xlim(-6, 28)
     ax.set_ylim(-7, 7)
